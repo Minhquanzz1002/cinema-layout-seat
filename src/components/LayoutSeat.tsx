@@ -1,4 +1,4 @@
-import React, {JSX} from 'react';
+import React from 'react';
 
 type LayoutSeatProps = {
     layout: Layout;
@@ -45,7 +45,14 @@ const LayoutSeat = ({layout}: LayoutSeatProps) => {
 
         if (seat.area === 2) {
             const nextSeat = array[index + 1];
-            array[index + 1] = null;
+            // for (let i = index + 1; i < array.length; i++) {
+            //     if (i + 1 <= array.length) {
+            //         array[i] = array[i + 1];
+            //     } else {
+            //         array = array.slice(0, -1);
+            //     }
+            // }
+            array.splice(index + 1, 1);
 
             return (
                 <button key={seat.id}
